@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes</title>
+    <script>
+        let imagenes = ["bbl.jpg", "images.jpg", "madara.jpg", "Minato.jpg", "tobirama.jpg"];
+        let posicion = 0;
+
+        function pasar() {
+            let foto = document.getElementsByTagName("img")[0];
+            posicion++;
+            if (posicion >= imagenes.length){
+                posicion = 0;
+            }
+            foto.src = imagenes[posicion];
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <img src="bbl.jpg" alt="Imagen del carrusel" height="400">
+    </p>
+
+    <p>
+        <button type="button" onclick="pasar();">PASAR</button>
+    </p>
+</body>
+</html>

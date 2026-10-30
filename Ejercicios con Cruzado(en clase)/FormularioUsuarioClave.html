@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario y clave</title>
+    <script>
+        function validar() {
+            let campos = document.getElementsByTagName("input");
+            let error = "";
+            let i = 0;
+            do {
+                if (campos[i].value == "") {
+                    error += "El campo " + campos[i].name + " está vacío";
+                }
+                i++;
+            } while (i < campos.length);
+
+            if (error == "") {
+                console.log("Datos correctos. Bienvenido, " + campos[0].value + ".");
+            } else {
+                console.log("ERROR" + error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario">
+    </p>
+
+    <p>
+        <label for="clave">Clave</label>
+        <input type="password" id="clave" name="clave">
+    </p>
+
+    <p>
+        <button type="button" onclick="validar();">Validar</button>
+    </p>
+</body>
+</html>

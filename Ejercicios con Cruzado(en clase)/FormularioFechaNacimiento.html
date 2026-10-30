@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha de nacimiento</title>
+    <script>
+        function comprobar() {
+            let anio = parseInt(document.getElementById("anio").value, 10);
+            let mes = parseInt(document.getElementById("mes").value, 10);
+            let dia = parseInt(document.getElementById("dia").value, 10);
+            let hoy = new Date();
+            let edad = hoy.getFullYear() - anio;
+
+            if (hoy.getMonth() + 1 < mes || (hoy.getMonth() + 1 == mes && hoy.getDate() < dia)) {
+                edad--;
+            }
+
+            document.getElementById("resultado").textContent = (edad >= 18) ? "Mayor de edad" : "Menor de edad";
+        }
+    </script>
+</head>
+<body>
+    <h1>Fecha Nacimiento</h1>
+
+    <p>
+        AÑO <input type="text" id="anio" size="6">
+        MES <input type="text" id="mes" size="4">
+        DÍA <input type="text" id="dia" size="4">
+    </p>
+
+    <button type="button" onclick="comprobar();">Comprobar</button>
+
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - charAt y random</title>
+    <script>
+        let parada = "";
+        let fin = false;
+
+        function aleatorio(frase) {
+            let pos = Math.floor(Math.random() * frase.length);
+            return frase.charAt(pos);
+        }
+
+        function obtenerParada() {
+            let frase = document.getElementById("frase").value;
+            if (frase == "") {
+                alert("Escribe primero una frase");
+                return;
+            }
+            parada = aleatorio(frase);
+            fin = false;
+            document.getElementById("parada").value = parada;
+        }
+
+        function ver() {
+            let frase = document.getElementById("frase").value;
+            if (frase == "") {
+                alert("Escribe primero una frase");
+                return;
+            }
+            if (fin) {
+                alert("Ya ha salido el caracter de parada");
+                return;
+            }
+
+            let letra = aleatorio(frase);
+            document.getElementById("caracter").value = letra;
+
+            if (parada != "" && letra == parada) {
+                fin = true;
+                alert("Ha salido el caracter de parada: " + parada);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Caracter aleatorio de una frase</h2>
+
+    Frase: <input type="text" id="frase" size="40">
+    <br><br>
+    <button type="button" onclick="obtenerParada();">Caracter de parada</button>
+    <input type="text" id="parada" size="3" readonly>
+    <br><br>
+    <button type="button" onclick="ver();">Ver</button>
+    <input type="text" id="caracter" size="3" readonly>
+</body>
+</html>

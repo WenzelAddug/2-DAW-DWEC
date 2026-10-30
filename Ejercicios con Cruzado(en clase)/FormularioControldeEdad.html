@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de edad</title>
+
+    <script type="text/javascript">
+        const EDAD_MINIMA = 18;
+
+        function validarEdad() {
+            let cajaNombre = document.getElementById("nombre");
+            let cajaEdad = document.getElementById("edad");
+            let textareaMensaje = document.getElementById("mensaje");
+
+            let nombre = cajaNombre.value;
+            let edad = parseInt(cajaEdad.value, 10);
+
+            if (!nombre) {
+                textareaMensaje.value = "Introduzca su nombre";
+            } else if (isNaN(edad) || edad <= 0) {
+                textareaMensaje.value = "Introduzca una edad válida";
+            } else if (edad >= EDAD_MINIMA) {
+                textareaMensaje.value = "Hola " + nombre + ". Bienvenido a nuestra App";
+            } else {
+                textareaMensaje.value = "Lo sentimos, " + nombre + ". No puede acceder";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>CONTROL DE EDAD</h1>
+
+    <p>
+        <label for="nombre">NOMBRE:</label>
+        <input type="text" id="nombre">
+    </p>
+
+    <p>
+        <label for="edad">EDAD:</label>
+        <input type="text" id="edad">
+    </p>
+
+    <p>
+        <button type="button" onclick="validarEdad();">VALIDAR</button>
+    </p>
+
+    <p>
+        <label for="mensaje">MENSAJE</label><br>
+        <textarea id="mensaje" rows="5" cols="40" readonly></textarea>
+    </p>
+</body>
+</html>

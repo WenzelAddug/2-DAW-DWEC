@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <script>
+        function decrementar() {
+            let cuenta = document.getElementsByTagName("input")[0];
+            let numero = parseInt(cuenta.value, 10);
+            if (numero > 0) {
+                numero--;
+            }
+            cuenta.value = numero;
+        }
+    </script>
+</head>
+<body>
+    <h1>CONTADOR</h1>
+
+    <p>
+        <label for="cuenta">CUENTA</label>
+        <input type="text" id="cuenta" value="10" readonly>
+    </p>
+
+    <p>
+        <button type="button" onclick="decrementar();">DECRE</button>
+    </p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+  
+<body>
+    <div class="calculadora-contenedor">
+    <h1>***Calculadora***</h1>
+
+    <div class="pantalla">
+        <input type="text" id="res" autofocus onkeydown="teclaenter(event)" value="" placeholder="0">
+    </div> 
+
+    <div class="botones">
+        <button onclick="concatenar('7')">7</button>
+        <button onclick="concatenar('8')">8</button>
+        <button onclick="concatenar('9')">9</button>
+        <button onclick="concatenar('+')">+</button><br>
+
+        <button onclick="concatenar('4')">4</button>
+        <button onclick="concatenar('5')">5</button>
+        <button onclick="concatenar('6')">6</button>
+        <button onclick="concatenar('-')">-</button><br>
+
+        <button onclick="concatenar('1')">1</button>
+        <button onclick="concatenar('2')">2</button>
+        <button onclick="concatenar('3')">3</button>
+        <button onclick="concatenar('*')">*</button><br>
+
+        <button onclick="concatenar('0')">0</button>
+        <button onclick="concatenar('.')">.</button>
+        <button onclick="concatenar('/')">/</button>        
+    </div>
+
+    <div class="botones-control">
+        <button onclick="borrar()">C</button>
+        <button onclick="calcular()">=</button>
+        </div>
+    </div>
+
+     <script>
+
+    let pantalla = document.getElementById("res");
+
+    function concatenar(valor){
+        pantalla.value+=valor;
+        pantalla.focus();
+    }
+
+    function borrar(){
+        pantalla.value="";
+        pantalla.focus();
+    }
+    function calcular(){
+        if(pantalla.value != ""){
+            pantalla.value = eval(pantalla.value);
+            pantalla.focus();
+        }
+    }
+
+    function teclaenter(event){
+//Compara si la tecla pulsada es de la etiqueta universal Enter..
+        if(event.key === 'Enter'){
+//cn esto evitamos qe el navegador haga automaticamente enviar el formulario.. 
+           event.preventDefault();
+           calcular();//Ejecuta la funcion..
+        }
+    }
+    pantalla.focus;
+
+    </script>
+    <p>By Mandingo</p>
+</body>
+</html>

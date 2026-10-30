@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso switch</title>
+    <script>
+        function informe() {
+            let pantalla = document.getElementsByTagName("textarea")[0];
+            console.log("Hola");
+            console.log(document.getElementsByTagName("input")[0].value);
+            switch (document.getElementsByTagName("input")[0].value) {
+                case "Naranjas":
+                    pantalla.value = "Naranjas cuestan 0,59€ el kilo.";
+                    break;
+                case "Manzanas":
+                    pantalla.value = "Manzanas cuestan 0,32€ el kilo.";
+                    break;
+                case "Plátanos":
+                    pantalla.value = "Plátanos cuestan 0,48€ el kilo.";
+                    break;
+                case "Cerezas":
+                    pantalla.value = "Cerezas cuestan 3,00€ el kilo.";
+                    break;
+                case "Mangos":
+                    pantalla.value = "Mangos cuestan 0,56€ el kilo.";
+                    break;
+                case "Papayas":
+                    pantalla.value = "Papayas cuestan 2,79€ el kilo.";
+                    break;
+                default:
+                    pantalla.value = "Disculpa, no tenemos el tipo de fruta " + document.getElementsByTagName("input")[0].value + ".";
+            }
+            console.log("¿Te gustaría tomar algo?");
+        }
+    </script>
+</head>
+<body>
+    <h1>SECCIÓN FRUTAS</h1>
+    <h2>CONSULTA DE PRECIOS</h2>
+
+    <p>
+        <label for="fruta">NOMBRE DE LA FRUTA:</label>
+        <input type="text" id="fruta">
+    </p>
+
+    <p>
+        <button type="button" onclick="informe();">CONSULTAR</button>
+    </p>
+
+    <p>
+        <label for="precio">PRECIO</label><br>
+        <textarea id="precio" rows="5" cols="40" readonly></textarea>
+    </p>
+</body>
+</html>

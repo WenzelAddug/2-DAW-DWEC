@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista colores</title>
+    <script>
+        function visualizar() {
+            let pantalla = document.getElementsByTagName("textarea")[0];
+            let colores = ["Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Morado", "Rosa", "Negro"];
+            pantalla.value = "";
+            for (let i = 0; i < colores.length; i++) {
+                pantalla.value += colores[i] + "\n";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>LISTA COLORES</h1>
+
+    <p>
+        <button type="button" onclick="visualizar();">VISUALIZAR</button>
+    </p>
+
+    <p>
+        <textarea rows="10" cols="30" readonly></textarea>
+    </p>
+</body>
+</html>

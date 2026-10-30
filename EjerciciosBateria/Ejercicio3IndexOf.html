@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - indexOf</title>
+    <script>
+        let miCadena = "cabrales, torta del casar, idiazabal";
+        let miCadenaMayusculas = "Cabrales, Torta del Casar, Idiazabal";
+
+        function buscar() {
+            let queso = document.getElementById("queso").value;
+            let pos;
+
+            if (queso == "") {
+                alert("Escribe un queso");
+                return;
+            }
+
+            pos = miCadena.indexOf(queso);
+            if (pos != -1) {
+                alert("El queso " + queso + " esta en la posicion " + pos + " de miCadena");
+            } else {
+                pos = miCadenaMayusculas.indexOf(queso);
+                if (pos != -1) {
+                    alert("El queso " + queso + " esta en la posicion " + pos + " de miCadenaMayusculas");
+                } else {
+                    alert("El queso " + queso + " no esta en ninguna cadena");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>¿Que queso prefieres?</h2>
+    <p>Cabrales, Torta del Casar o Idiazabal</p>
+
+    Queso: <input type="text" id="queso">
+    <button type="button" onclick="buscar();">Buscar</button>
+</body>
+</html>

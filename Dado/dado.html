@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dado</title>
+    <script>
+        function lanzar() {
+            let foto = document.getElementsByTagName("img")[0];
+            let pantalla = document.getElementsByTagName("textarea")[0];
+            let numero = Math.floor(Math.random() *6) + 1;
+            foto.src = "dado" + numero + ".jpg";
+            pantalla.value = "Ha salido un " + numero;
+        }
+    </script>
+</head>
+<body>
+    <h1>SIMULACIÓN DE DADOS</h1>
+
+    <p>
+        <img src="dado1.jpg" alt="Cara del dado" width="200" height="200">
+    </p>
+
+    <p>
+        <button type="button" onclick="lanzar();">LANZAR</button>
+    </p>
+
+    <p>
+        <textarea rows="3" cols="30" readonly></textarea>
+    </p>
+</body>
+</html>
