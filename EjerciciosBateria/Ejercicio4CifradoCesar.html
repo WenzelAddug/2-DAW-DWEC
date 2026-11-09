@@ -5,7 +5,21 @@
     <title>Ejercicio 4 - Cifrado Cesar</title>
     <script>
         function cifrar() {
-            
+            let texto = document.getElementById("texto").value;
+            let clave = parseInt(document.getElementById("clave").value);
+            let resultado = "";
+
+            if (isNaN(clave)) {
+                alert("La clave tiene que ser un numero");
+                return;
+            }
+
+            for (let i = 0; i < texto.length; i++) {
+                let codigo = texto.charCodeAt(i) + clave;
+                resultado = resultado + String.fromCharCode(codigo);
+            }
+
+            document.getElementById("resultado").value = resultado;
         }
     </script>
 </head>

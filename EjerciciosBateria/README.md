@@ -6,15 +6,18 @@ Batería de ejercicios de JavaScript sobre cadenas, arrays y números aleatorios
 
 | Archivo | Ejercicio | Estado |
 | --- | --- | --- |
-| `Ejercicio1MediadeNumeros.html` | Media de una serie de números | En proceso |
+| `Ejercicio1MediadeNumeros.html` | Media de una serie de números | Terminado |
 | `Ejercicio2CharyRandom.html` | Carácter aleatorio de una frase | Terminado |
 | `Ejercicio3IndexOf.html` | Buscar un queso con `indexOf` | Terminado |
-| `Ejercicio4CifradoCesar.html` | Cifrado César | En proceso |
+| `Ejercicio4CifradoCesar.html` | Cifrado César | Terminado |
 | `Ejercicio5CuadradosAleatorios.html` | Cuadrados de colores aleatorios | Terminado |
 
 ### Ejercicio 1 - Media de números
 
-Se van escribiendo números y, al introducir un 0, se calcula la media de todos. Está el formulario hecho, falta terminar el script.
+Se van escribiendo números y, al introducir un 0, se calcula la media de todos. Se puede hacer de dos formas:
+
+- **Añadir** guarda en un array el número escrito en la caja. Al escribir 0 se muestra la media.
+- **Hacerlo con prompt** va pidiendo los números con `prompt()` dentro de un bucle `do...while` hasta que se escribe 0.
 
 ### Ejercicio 2 - charAt y random
 
@@ -29,7 +32,9 @@ Hay dos cadenas con los mismos quesos, una en minúsculas y otra con mayúsculas
 
 ### Ejercicio 4 - Cifrado César
 
-Cifrar un texto desplazando las letras según una clave. Está el formulario hecho, falta la función `cifrar()`.
+Cifra un texto desplazando cada carácter tantas posiciones como indique la clave. La función `cifrar()` recorre el texto, suma la clave al código de cada carácter con `charCodeAt()` y lo vuelve a convertir en letra con `String.fromCharCode()`.
+
+Para descifrar basta con usar la misma clave en negativo.
 
 ### Ejercicio 5 - Cuadrados aleatorios
 
@@ -38,9 +43,12 @@ Un bucle `for` dibuja 2000 cuadrados con `document.write()`, cada uno con un col
 ## Qué se practica
 
 - `charAt()` e `indexOf()`
+- `charCodeAt()` y `String.fromCharCode()`
 - `Math.random()` y `Math.floor()`
-- Bucles `for`
-- `alert()` y `document.write()`
+- Arrays y `push()`
+- Bucles `for` y `do...while`
+- `parseInt()`, `parseFloat()` e `isNaN()`
+- `alert()`, `prompt()` y `document.write()`
 - Estilos en línea generados desde JavaScript
 
 ## Cómo probarlo
