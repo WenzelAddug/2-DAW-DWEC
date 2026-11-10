@@ -7,21 +7,15 @@
       var numeros=[4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
       var sinRepetidos=[];
 
-      //recorro el array y solo guardo el numero si todavia no esta
+      //solo guardo el numero si todavia no esta en el array nuevo
       for (let valor of numeros){
         if (!sinRepetidos.includes(valor)){
           sinRepetidos.push(valor);
         }
       }
 
-      document.write("<h2>Array sin elementos repetidos</h2>");
-      document.write("<p>Array original: " + numeros.join(", ") + "</p>");
-      document.write("<p>Array sin repetidos: " + sinRepetidos.join(", ") + "</p>");
-
-      //otra forma: con un Set, que no admite duplicados
-      var conjunto=new Set(numeros);
-      var sinRepetidos2=[...conjunto];
-      document.write("<p>Con Set: " + sinRepetidos2.join(", ") + "</p>");
+      document.write("Array original: " + numeros + "<br>");
+      document.write("Array sin repetidos: " + sinRepetidos);
     </script>
   </head>
   <body>

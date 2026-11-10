@@ -15,16 +15,13 @@ Batería de ejercicios de JavaScript sobre String, Arrays, Set y Map.
 
 ### Ejercicio 1 - Array sin repetidos
 
-A partir de un array con números repetidos se obtiene otro sin repetidos. Está hecho de dos formas:
-
-- Recorriendo el array con `for...of` y guardando con `push()` solo los números que todavía no están (`includes()`).
-- Pasando el array a un `Set`, que no admite duplicados, y volviendo a convertirlo en array con `[...conjunto]`.
+A partir de un array con números repetidos se obtiene otro sin repetidos. Se recorre el array con `for...of` y se guardan con `push()` solo los números que todavía no están (`includes()`).
 
 ### Ejercicio 2 - Cifrado polialfabético
 
 Se pide un mensaje y una clave formada solo por números. A cada carácter del mensaje se le suma el número de la clave que le toca, usando `charCodeAt()` y `String.fromCharCode()`. Cuando se acaba la clave se vuelve a empezar por el principio.
 
-Si la clave tiene algo que no sea un número se vuelve a pedir con un `do...while`.
+Si la clave no es un número (`isNaN()`) se vuelve a pedir con un `do...while`.
 
 Ejemplo: con el mensaje `Este es el mensaje.` y la clave `12345` sale `Fuwi%fu#iq!ohrxblh2`.
 
@@ -38,7 +35,7 @@ Se crea un array con 20 números aleatorios del 1 al 50 y se recorre mostrando e
 
 ### Ejercicio 5 - Frecuencias
 
-Para comprobar si `Math.random()` es realmente aleatoria se calculan 10.000 números del 1 al 10 y se cuenta cuántas veces sale cada uno. Se usa un `Map` donde la clave es el número y el valor las veces que ha salido. El resultado se muestra en una tabla.
+Para comprobar si `Math.random()` es realmente aleatoria se calculan 10.000 números del 1 al 10 y se cuenta cuántas veces sale cada uno. Se usa un `Map` donde la clave es el número y el valor las veces que ha salido.
 
 ### Ejercicio 6 - Palíndromos
 
@@ -46,13 +43,14 @@ Se pide un texto y se indica si es un palíndromo. Antes de comprobarlo se pasa 
 
 ## Qué se practica
 
-- Arrays: `push()`, `includes()`, `join()` y `reverse()`
+- Arrays: `push()`, `includes()`, `reverse()` y `join()`
 - `Set`: `add()`, `size` y conversión a array con `[...conjunto]`
 - `Map`: `set()`, `get()` y recorrido con `for ([clave,valor] of mapa)`
-- `charCodeAt()`, `String.fromCharCode()`, `charAt()`, `indexOf()`, `toLowerCase()` y `split()`
+- `charCodeAt()`, `String.fromCharCode()`, `indexOf()`, `includes()`, `toLowerCase()` y `split()`
 - `Math.random()` y `Math.floor()`
 - Bucles `for`, `for...of`, `while` y `do...while`
-- `prompt()`, `alert()` y `document.write()`
+- `isNaN()` y `parseInt()`
+- `prompt()` y `document.write()`
 
 ## Cómo probarlo
 

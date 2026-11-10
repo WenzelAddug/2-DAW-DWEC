@@ -4,21 +4,13 @@
     <meta charset="UTF-8">
     <title>Ejercicio 3 - Lotería primitiva</title>
     <script>
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-      }
-
-      document.write("<h2>50 combinaciones de la primitiva</h2>");
-
       for (let i=1;i<=50;i++){
-        //uso un Set porque no admite numeros repetidos
+        //el Set no deja meter numeros repetidos
         var combinacion=new Set();
         while (combinacion.size<6){
-          combinacion.add(getRandomInt(1,50));
+          combinacion.add(Math.floor(Math.random()*49)+1);
         }
-
-        var numeros=[...combinacion];
-        document.write("Combinación " + i + ": " + numeros.join(" - ") + "<br>");
+        document.write("Combinación " + i + ": " + [...combinacion] + "<br>");
       }
     </script>
   </head>

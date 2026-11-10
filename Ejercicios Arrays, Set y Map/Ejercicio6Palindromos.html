@@ -5,36 +5,28 @@
     <title>Ejercicio 6 - Palíndromos</title>
     <script>
       var texto=prompt("Escribe un texto");
-
       var conTilde="áéíóúü";
       var sinTilde="aeiouu";
-      var letras="abcdefghijklmnñopqrstuvwxyz0123456789";
-
-      //no se distingue entre mayusculas y minusculas
-      var minusculas=texto.toLowerCase();
+      var letras="abcdefghijklmnñopqrstuvwxyz";
       var limpio="";
 
-      for (let caracter of minusculas){
-        //si tiene tilde o dieresis lo cambio por la vocal normal
-        let pos=conTilde.indexOf(caracter);
-        if (pos!=-1){
-          caracter=sinTilde.charAt(pos);
+      for (let caracter of texto.toLowerCase()){
+        //quito la tilde o la dieresis
+        if (conTilde.includes(caracter)){
+          caracter=sinTilde[conTilde.indexOf(caracter)];
         }
-        //solo me quedo con letras y numeros (fuera espacios, comas, puntos...)
+        //los espacios y signos de puntuacion no se guardan
         if (letras.includes(caracter)){
-          limpio=limpio + caracter;
+          limpio+=caracter;
         }
       }
 
-      //le doy la vuelta al texto usando un array
       var alReves=limpio.split("").reverse().join("");
 
-      document.write("<h2>Palíndromos</h2>");
-      document.write("<p>Texto: " + texto + "</p>");
-      if (limpio.length>0 && limpio==alReves){
-        document.write("<p>El texto SÍ es un palíndromo</p>");
+      if (limpio==alReves){
+        document.write(texto + " SÍ es un palíndromo");
       }else{
-        document.write("<p>El texto NO es un palíndromo</p>");
+        document.write(texto + " NO es un palíndromo");
       }
     </script>
   </head>

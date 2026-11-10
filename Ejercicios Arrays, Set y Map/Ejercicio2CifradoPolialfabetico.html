@@ -4,46 +4,29 @@
     <meta charset="UTF-8">
     <title>Ejercicio 2 - Cifrado polialfabético</title>
     <script>
-      var mensaje=prompt("Escribe el mensaje que quieres cifrar");
+      var mensaje=prompt("Escribe el mensaje");
       var clave;
-      var claveValida;
 
-      //la clave solo puede tener numeros, si no se vuelve a pedir
+      //la clave tiene que ser un numero
       do{
         clave=prompt("Escribe la clave (solo números)");
-        claveValida=true;
-        if (clave.length==0){
-          claveValida=false;
-        }
-        for (let caracter of clave){
-          if (isNaN(caracter) || caracter==" "){
-            claveValida=false;
-          }
-        }
-        if (!claveValida){
-          alert("La clave debe contener solo números");
-        }
-      }while(!claveValida)
+      }while(isNaN(clave))
 
       var cifrado="";
-      var posClave=0;
+      var j=0;
 
       for (let i=0;i<mensaje.length;i++){
-        //codigo del caracter + el numero de la clave que le toca
-        let codigo=mensaje.charCodeAt(i) + parseInt(clave.charAt(posClave));
-        cifrado=cifrado + String.fromCharCode(codigo);
-
-        //la clave se usa de forma ciclica
-        posClave++;
-        if (posClave==clave.length){
-          posClave=0;
+        cifrado+=String.fromCharCode(mensaje.charCodeAt(i) + parseInt(clave[j]));
+        //cuando se acaba la clave se empieza otra vez
+        j++;
+        if (j==clave.length){
+          j=0;
         }
       }
 
-      document.write("<h2>Cifrado polialfabético</h2>");
-      document.write("<p>Mensaje: " + mensaje + "</p>");
-      document.write("<p>Clave: " + clave + "</p>");
-      document.write("<p>Mensaje cifrado: " + cifrado + "</p>");
+      document.write("Mensaje: " + mensaje + "<br>");
+      document.write("Clave: " + clave + "<br>");
+      document.write("Mensaje cifrado: " + cifrado);
     </script>
   </head>
   <body>
