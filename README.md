@@ -12,6 +12,7 @@ Todo está hecho con HTML y JavaScript sin librerías, con el script dentro de c
 | [Dado](./Dado) | Simulación del lanzamiento de un dado |
 | [Imagenes](./Imagenes) | Carrusel que va pasando imágenes |
 | [EjerciciosBateria](./EjerciciosBateria) | Batería de ejercicios de cadenas, arrays y números aleatorios |
+| [Ejercicios Arrays, Set y Map](./Ejercicios%20Arrays,%20Set%20y%20Map) | Batería de ejercicios de String, Arrays, Set y Map |
 | [Ejercicios con Cruzado(en clase)](./Ejercicios%20con%20Cruzado(en%20clase)) | Ejercicios hechos en clase: formularios, condicionales y bucles |
 
 Cada carpeta tiene su propio README con el detalle de los ejercicios.

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - Lotería primitiva</title>
+    <script>
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      document.write("<h2>50 combinaciones de la primitiva</h2>");
+
+      for (let i=1;i<=50;i++){
+        //uso un Set porque no admite numeros repetidos
+        var combinacion=new Set();
+        while (combinacion.size<6){
+          combinacion.add(getRandomInt(1,50));
+        }
+
+        var numeros=[...combinacion];
+        document.write("Combinación " + i + ": " + numeros.join(" - ") + "<br>");
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

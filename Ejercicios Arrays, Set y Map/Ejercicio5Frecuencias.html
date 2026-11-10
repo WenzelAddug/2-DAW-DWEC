@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5 - Frecuencias</title>
+    <script>
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      //mapa: la clave es el numero y el valor las veces que ha salido
+      var frecuencias=new Map();
+      for (let i=1;i<=10;i++){
+        frecuencias.set(i,0);
+      }
+
+      for (let i=0;i<10000;i++){
+        let numero=getRandomInt(1,11);
+        frecuencias.set(numero,frecuencias.get(numero)+1);
+      }
+
+      document.write("<table border='1'>");
+      document.write("<tr><th colspan='2'>FRECUENCIAS</th></tr>");
+      for ([clave,valor] of frecuencias){
+        document.write("<tr><td>Número " + clave + "</td><td>" + valor + "</td></tr>");
+      }
+      document.write("</table>");
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
