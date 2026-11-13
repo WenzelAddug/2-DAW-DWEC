@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso select</title>
+</head>
+<body>
+    <form action="">
+        <b><i>Selecciona el tipo o tipos de música que te gusta</i></b><br><br>
+        <select id="musica" multiple size="4">
+            <option value="Rock&Roll">Rock&Roll</option>
+            <option value="Clásica">Clásica</option>
+            <option value="Heavy">Heavy</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Tecno">Tecno</option>
+        </select><br><br>
+        <textarea id="pantalla" cols="30" rows="10"></textarea><br><br>
+        <input type="button" value="Visualizar" onclick="visualizar();">
+    </form>
+    <script>
+        //En este ejemplo se proponen distintas opciones para controlar las opciones
+        //seleccionadas en un select.
+        var seleccion="";
+         //opción a:
+        /*function visualizar(){
+           
+            for (let i=0;i<document.getElementById("musica").options.length;i++){
+                if(document.getElementById("musica").options[i].selected){
+                    seleccion+=" " + document.getElementById("musica").options[i].value;
+                }
+            }
+            document.getElementById("pantalla").value=seleccion;
+        }*/
+        //opción b:
+        /*
+        function visualizar(){
+            
+            for (let i=0;i<document.getElementsByTagName("option").length;i++){
+                if(document.getElementsByTagName("option")[i].selected){
+                    seleccion+=" " + document.getElementsByTagName("option")[i].value;
+                }
+            }
+            document.getElementById("pantalla").value=seleccion;
+        }*/
+        //opción c:
+        function visualizar(){
+           alert(document.forms[0].elements[0].id);
+           // vacio seleccion para que no se repitan las opciones de antes
+           seleccion="";
+           for (let i=0;i<document.forms[0].elements[0].options.length;i++){
+               if(document.forms[0].elements[0].options[i].selected){
+                   seleccion+=" " + document.forms[0].elements[0].options[i].text;
+               }
+           }
+           document.getElementById("pantalla").value=seleccion;
+           // si no ha elegido nada lo aviso
+           if (seleccion==""){
+               document.forms[0].elements[1].value="No has seleccionado ningun tipo de musica";
+           }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso Input tipo radio y check</title>
+</head>
+<body>
+    <center>
+        <form action="" name="form-extras">
+            <table>
+                <tr><td><label for="">Nombre</label></td><td><input type="text" id="nombre"></td><td></td></tr>
+                <tr><td><label for="">Apellidos</label></td><td><input type="text" id="apellidos"></td><td></td></tr>
+                <tr><td><label for="">Forma de pago </label></td><td><input type="radio" name="gruporadio" value="Mensual">Mensual</td><td><input type="radio" name="gruporadio" value="Trimestral">Trimestral</td><td><input type="radio" name="gruporadio" value="anual">Anual</td></tr>
+                <tr><td><label for="">Accesorios</label></td><td><input type="checkbox" name="SEGURO" value="Seguro">Todo riesgo</td><td><input type="checkbox" name="Enchufable" value="Enchufable">Enchufable</td><td><input type="checkbox" name="Aleacion" value="Aleacion">Llantas de aleación</td></tr>
+                <tr><td></td><td><input type="button" value="Ver selecciones" name="VER" onClick="VerSeleccion()"></td><td></td></tr>
+                <tr><td></td><td></td><td></td></tr>
+            </table>
+            <label for="">INFORME: </label><br><br>
+            <textarea name="pantalla" id="" cols="30" rows="10"></textarea>
+        </form>
+    </center>
+</body>
+<script>
+    var periodopago=document.getElementsByName('gruporadio');
+    var opcionescheck=document.getElementsByTagName('input');
+    alert(opcionescheck.length);
+    var texto="";
+    var Total=0;
+    function VerSeleccion(){
+        // pongo texto y Total a 0 para que no se sumen los clicks de antes
+        texto="";
+        Total=0;
+
+        // compruebo que haya nombre y apellidos (input 0 y 1)
+        if (opcionescheck[0].value=="" || opcionescheck[1].value==""){
+            alert("Tienes que escribir el nombre y los apellidos");
+            return;
+        }
+
+        // compruebo que se haya elegido una forma de pago
+        var pago="";
+        for (let k=0; k<periodopago.length;k++){
+            if (periodopago[k].checked){
+                pago=periodopago[k].value;
+            }
+        }
+        if (pago==""){
+            alert("Elige una forma de pago");
+            return;
+        }
+
+        for (let i=0; i<periodopago.length;i++){
+            if (periodopago[i].checked){
+                alert("Forma de pago elegida " + periodopago[i].value);
+                break
+            }
+        }
+        alert(opcionescheck[5].value);
+        for (let j=5;j<8;j++){
+            if (opcionescheck[j].checked){
+                texto+=opcionescheck[j].value + " ";
+                switch (opcionescheck[j].value){                    
+                    case "Seguro": 
+                        Total+=650;
+                        break;
+                    case "Enchufable":
+                        Total +=6500;
+                        break;
+                    case "Aleacion":
+                        Total += 2500;
+                        break;
+                    default:
+                        Total=0;
+                        break;
+                }                
+            }
+        }
+        
+        document.getElementsByName("pantalla")[0].value= "Los extras elegidos por " + document.getElementById("nombre").value +" son " + "\n" + texto +"\n" + "y \n" + "El total de los extras asciende a " + Total;
+
+        // añado al informe los apellidos y la forma de pago
+        if (texto==""){
+            document.getElementsByName("pantalla")[0].value+="\n(no ha elegido ningun extra)";
+        }
+        document.getElementsByName("pantalla")[0].value+="\n" + "Apellidos: " + opcionescheck[1].value;
+        document.getElementsByName("pantalla")[0].value+="\n" + "Forma de pago: " + pago;
+
+    }
+</script>
+     
+</html>
