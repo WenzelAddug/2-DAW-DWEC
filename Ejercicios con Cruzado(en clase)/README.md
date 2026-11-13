@@ -21,7 +21,8 @@ Ejercicios hechos en clase. Son formularios pequeños para practicar lo básico 
 - `Formulario Fruita.html` distingue mayúsculas y tildes: hay que escribir la fruta tal cual, por ejemplo `Naranjas` o `Plátanos`.
 - `FormularioUsuarioClave.html` y `UsoPrompt.html` escriben el resultado en la consola, así que hay que abrir las herramientas de desarrollo (F12) para verlo.
 - En `UsoPrompt.html` se ve que `prompt()` siempre devuelve un `string`, aunque se escriba un número.
-- `FormularioExtrasCoche.html` y `UsoSelectMusica.html` son códigos del profesor. No he cambiado sus líneas, solo he añadido código (con comentarios) para que el texto y el total se vacíen cada vez que se pulsa el botón y para avisar si falta algún dato.
+- En `FormularioExtrasCoche.html` y `UsoSelectMusica.html` el HTML es el del profesor y el script lo he hecho yo desde cero. Los campos se cogen con `document.forms[0].elements[n]`, `getElementsByName` y `getElementsByTagName`, sin usar `getElementById`.
+- En `UsoSelectMusica.html` para elegir varias opciones hay que mantener pulsado Ctrl al hacer clic.
 
 ## Cómo probarlo
 

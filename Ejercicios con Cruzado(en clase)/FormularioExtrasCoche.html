@@ -23,70 +23,62 @@
     </center>
 </body>
 <script>
-    var periodopago=document.getElementsByName('gruporadio');
-    var opcionescheck=document.getElementsByTagName('input');
-    alert(opcionescheck.length);
-    var texto="";
-    var Total=0;
+    // funcion que se ejecuta al pulsar el boton "Ver selecciones"
     function VerSeleccion(){
-        // pongo texto y Total a 0 para que no se sumen los clicks de antes
-        texto="";
-        Total=0;
+        // cojo los datos del formulario
+        var nombre=document.forms[0].elements[0].value;
+        var apellidos=document.forms[0].elements[1].value;
+        var pagos=document.getElementsByName("gruporadio");
+        var inputs=document.getElementsByTagName("input");
 
-        // compruebo que haya nombre y apellidos (input 0 y 1)
-        if (opcionescheck[0].value=="" || opcionescheck[1].value==""){
-            alert("Tienes que escribir el nombre y los apellidos");
+        var pago="";
+        var extras="";
+        var total=0;
+
+        // compruebo que el nombre y los apellidos no esten vacios
+        if (nombre=="" || apellidos==""){
+            alert("Escribe el nombre y los apellidos");
             return;
         }
 
-        // compruebo que se haya elegido una forma de pago
-        var pago="";
-        for (let k=0; k<periodopago.length;k++){
-            if (periodopago[k].checked){
-                pago=periodopago[k].value;
+        // miro que forma de pago esta marcada
+        for (let i=0; i<pagos.length; i++){
+            if (pagos[i].checked){
+                pago=pagos[i].value;
             }
         }
+
         if (pago==""){
             alert("Elige una forma de pago");
             return;
         }
 
-        for (let i=0; i<periodopago.length;i++){
-            if (periodopago[i].checked){
-                alert("Forma de pago elegida " + periodopago[i].value);
-                break
-            }
-        }
-        alert(opcionescheck[5].value);
-        for (let j=5;j<8;j++){
-            if (opcionescheck[j].checked){
-                texto+=opcionescheck[j].value + " ";
-                switch (opcionescheck[j].value){                    
-                    case "Seguro": 
-                        Total+=650;
+        // recorro los input y me quedo con los checkbox marcados
+        for (let i=0; i<inputs.length; i++){
+            if (inputs[i].type=="checkbox" && inputs[i].checked){
+                extras+=inputs[i].value + " ";
+
+                // sumo el precio de cada extra
+                switch (inputs[i].value){
+                    case "Seguro":
+                        total+=650;
                         break;
                     case "Enchufable":
-                        Total +=6500;
+                        total+=6500;
                         break;
                     case "Aleacion":
-                        Total += 2500;
+                        total+=2500;
                         break;
-                    default:
-                        Total=0;
-                        break;
-                }                
+                }
             }
         }
-        
-        document.getElementsByName("pantalla")[0].value= "Los extras elegidos por " + document.getElementById("nombre").value +" son " + "\n" + texto +"\n" + "y \n" + "El total de los extras asciende a " + Total;
 
-        // añado al informe los apellidos y la forma de pago
-        if (texto==""){
-            document.getElementsByName("pantalla")[0].value+="\n(no ha elegido ningun extra)";
+        if (extras==""){
+            extras="Ninguno";
         }
-        document.getElementsByName("pantalla")[0].value+="\n" + "Apellidos: " + opcionescheck[1].value;
-        document.getElementsByName("pantalla")[0].value+="\n" + "Forma de pago: " + pago;
 
+        // muestro el informe en el textarea
+        document.getElementsByName("pantalla")[0].value="Cliente: " + nombre + " " + apellidos + "\n" + "Forma de pago: " + pago + "\n" + "Extras: " + extras + "\n" + "Total de los extras: " + total + " euros";
     }
 </script>
      

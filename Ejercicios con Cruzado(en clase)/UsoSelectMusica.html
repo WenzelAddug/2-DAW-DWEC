@@ -20,45 +20,27 @@
         <input type="button" value="Visualizar" onclick="visualizar();">
     </form>
     <script>
-        //En este ejemplo se proponen distintas opciones para controlar las opciones
-        //seleccionadas en un select.
-        var seleccion="";
-         //opción a:
-        /*function visualizar(){
-           
-            for (let i=0;i<document.getElementById("musica").options.length;i++){
-                if(document.getElementById("musica").options[i].selected){
-                    seleccion+=" " + document.getElementById("musica").options[i].value;
+        // funcion que se ejecuta al pulsar el boton "Visualizar"
+        function visualizar(){
+            // el select es el elemento 0 del formulario y el textarea el 1
+            var musica=document.forms[0].elements[0];
+            var pantalla=document.forms[0].elements[1];
+            var seleccion="";
+
+            // recorro las opciones y guardo las que estan seleccionadas
+            for (let i=0; i<musica.options.length; i++){
+                if (musica.options[i].selected){
+                    seleccion+=musica.options[i].text + "\n";
                 }
             }
-            document.getElementById("pantalla").value=seleccion;
-        }*/
-        //opción b:
-        /*
-        function visualizar(){
-            
-            for (let i=0;i<document.getElementsByTagName("option").length;i++){
-                if(document.getElementsByTagName("option")[i].selected){
-                    seleccion+=" " + document.getElementsByTagName("option")[i].value;
-                }
+
+            // si no ha elegido nada lo aviso
+            if (seleccion==""){
+                pantalla.value="No has elegido ningun tipo de musica";
             }
-            document.getElementById("pantalla").value=seleccion;
-        }*/
-        //opción c:
-        function visualizar(){
-           alert(document.forms[0].elements[0].id);
-           // vacio seleccion para que no se repitan las opciones de antes
-           seleccion="";
-           for (let i=0;i<document.forms[0].elements[0].options.length;i++){
-               if(document.forms[0].elements[0].options[i].selected){
-                   seleccion+=" " + document.forms[0].elements[0].options[i].text;
-               }
-           }
-           document.getElementById("pantalla").value=seleccion;
-           // si no ha elegido nada lo aviso
-           if (seleccion==""){
-               document.forms[0].elements[1].value="No has seleccionado ningun tipo de musica";
-           }
+            else{
+                pantalla.value="Te gusta:\n" + seleccion;
+            }
         }
     </script>
 </body>
